@@ -14,20 +14,24 @@ trait CrudShowTrait
         $this->setRequest($request);
         $this->validate(CrudValidator::VALIDATE_INDEX);
         $this->setState();
-
+        
         $this->beforeShow();
-
-        $object = $this->state->find($id);
-
+        
+        $this->state = $this->state->find($id);
+        
+        if (!$this->state) {
+            return $this->getJson([]);
+        }
+        
         $this->afterShow();
-
-        return $this->getJson($object);
+        
+        return $this->getJson($this->state);
     }
-
+    
     public function beforeShow()
     {
     }
-
+    
     public function afterShow()
     {
     }
