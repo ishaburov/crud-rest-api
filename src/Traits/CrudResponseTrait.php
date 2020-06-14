@@ -25,7 +25,7 @@ trait CrudResponseTrait
         $data = [
             'items' => $paginate->items(),
             'meta' => [
-                'current_page' => (int) $paginate->currentPage(),
+                'page' => (int) $paginate->currentPage(),
                 'last_page' => (int) $paginate->lastPage(),
                 'per_page' => (int) $paginate->perPage(),
                 'total' => (int) $paginate->total(),
