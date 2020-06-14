@@ -20,7 +20,7 @@ class CrudValidator
             return null;
         }
         
-        $request = $this->app($validator);
+        $request = app($validator);
 
         if (!$request instanceof Request) {
             throw new \Exception('please use instanceof Request');
