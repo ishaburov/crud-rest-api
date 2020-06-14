@@ -2,10 +2,13 @@
 
 namespace Shaburov\Crud;
 
+use Illuminate\Routing\Controller as BaseController;
 use Shaburov\Crud\Traits\CrudDefaultsTrait;
 use Shaburov\Crud\Traits\CrudResponseTrait;
 
-abstract class CRUDController extends Controller
+
+
+abstract class CRUDController extends BaseController
 {
     use CrudDefaultsTrait,
         CrudResponseTrait;
@@ -14,5 +17,5 @@ abstract class CRUDController extends Controller
     {
         $this->initialisation();
     }
-
+  
 }

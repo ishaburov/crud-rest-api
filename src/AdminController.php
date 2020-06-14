@@ -3,8 +3,6 @@
 
 namespace Shaburov\Crud;
 
-
-use Shaburov\Crud\CRUDController;
 use Shaburov\Crud\Interfaces\CrudDestroyInterface;
 use Shaburov\Crud\Interfaces\CrudIndexInterface;
 use Shaburov\Crud\Interfaces\CrudListInterface;
