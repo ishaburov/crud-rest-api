@@ -1,0 +1,25 @@
+{
+    "name": "shaburov/laravel-crud-rest-api",
+    "description": "Crud Rest Api package for creating other crud controllers.",
+    "keywords": ["crud", "rest-api", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Shaburov",
+            "email": "nkfrez@gmail.com"
+        }
+    ],
+    "type": "project",
+    "require": {
+		"php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit":"^8.5",
+        "laravel/framework":"^7.1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shaburov\\":"src/"
+        }
+    }
+}
