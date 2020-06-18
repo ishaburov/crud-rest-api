@@ -12,10 +12,10 @@ trait CrudIndexTrait
 
     public function index(Request $request)
     {
+        $this->setRequest($request);
         if ($request->has('all')) {
             return $this->list();
         }
-        $this->setRequest($request);
         $this->validate(CrudValidator::VALIDATE_INDEX);
 
         $perPage = $request->get('itemsPerPage', 25);
@@ -27,9 +27,11 @@ trait CrudIndexTrait
         $objects = $this->state
             ->paginate($perPage);
 
+        $this->pagination = $objects;
+        
         $this->afterIndex();
 
-        return $this->getJsonPaginate($objects);
+        return $this->getJsonPaginate($this->pagination);
     }
 
     public function beforeIndex()

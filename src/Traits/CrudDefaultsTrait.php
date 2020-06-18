@@ -17,7 +17,8 @@ trait CrudDefaultsTrait
     protected Request $request;
     private CrudValidator $validator;
     public ?Collection $requestData = null;
-
+    public $pagination = null;
+    
     abstract function setModelClass();
 
     private function initialisation(): self

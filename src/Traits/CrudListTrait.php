@@ -13,8 +13,10 @@ trait CrudListTrait
         $this->validate(CrudValidator::VALIDATE_LIST);
         $this->setState();
         $this->beforeList();
+        
         $objects = $this->state->get();
-        $this->afterList();
+        
+        $this->afterList($objects);
 
         return $this->getJson($objects);
     }

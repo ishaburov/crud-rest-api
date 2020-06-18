@@ -21,8 +21,8 @@ trait CrudStoreTrait
         }
 
         $this->creating();
-
-        $object = $this->state
+    
+        $this->state = $this->state
             ->create($this->getData());
 
         if (method_exists($this, 'saved')) {
@@ -31,7 +31,7 @@ trait CrudStoreTrait
 
         $this->created();
 
-        return $this->getJson($object);
+        return $this->getJson($this->state);
     }
 
     public function creating(): void
