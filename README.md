@@ -1,9 +1,16 @@
-Intro
+# CRUD rest-api based on Laravel
+
+[![Latest Stable Version](https://poser.pugx.org/shaburov/laravel-crud-rest-api/v)](//packagist.org/packages/shaburov/laravel-crud-rest-api)
+[![Total Downloads](https://poser.pugx.org/shaburov/laravel-crud-rest-api/downloads)](//packagist.org/packages/shaburov/laravel-crud-rest-api)
+[![Latest Unstable Version](https://poser.pugx.org/shaburov/laravel-crud-rest-api/v/unstable)](//packagist.org/packages/shaburov/laravel-crud-rest-api)
+[![License](https://poser.pugx.org/shaburov/laravel-crud-rest-api/license)](//packagist.org/packages/shaburov/laravel-crud-rest-api)
+
+## Intro
 
  This package created for create fast crud operations, 
     for example Pagination,Object list without pagination, Store, Update, Destroy and Show
    
-Console
+## Console
 
     Publish config 
     php artisan vendor:publish --provider="CrudRestApi\CrudServiceProvider"
@@ -16,7 +23,7 @@ You can activate default routes in config and will see how it's working
 load_routes => true on default false
 And execute command php artisan route:list
 
-How to use it
+## How to use it
 
  Create Controller and extends it from CrudBaseController 
     or create your Controller on based interfaces and traits
@@ -51,7 +58,7 @@ How to use it
         }
     }
 
-Validations
+## Validations
 
 You should use CrudValidatorInterface and use Trait CrudValidatorTrait
     And in method setValidations connect your validations     
@@ -66,7 +73,7 @@ You should use CrudValidatorInterface and use Trait CrudValidatorTrait
        $this->validateDelete = null;
     }
 
-Change behavior
+## Change behavior
 
     All methods include in yourself methods 
     for change default behaviors
@@ -92,7 +99,7 @@ Change behavior
     public function deleting()
     public function deleted()
    
-Routes
+## Routes
 
 You should add routes in your routes file
 
@@ -100,7 +107,7 @@ You should add routes in your routes file
         Route::resource('articles', 'ArticleController');
     });
 
-Parameters
+## Parameters
 
 index [GET] include parameters 
     page - current page // articles?page=1
@@ -125,7 +132,7 @@ index [GET] include parameters
          $this->requestData['title'] = Str::lower($this->requestData['title']);
      }   
 
-Config 
+## Config 
  
     'load_routes' => false,
     'migration_dir' => database_path()."/migrations/crud" // path export migrations - not required ,
@@ -133,7 +140,14 @@ Config
             'key' => 'per_page', // key for get parameter
             'value' => 10, // default value
             'limit' => 100, // max value
-    ],    
+    ],   
+    
+## In the future
+
+#### Generating controllers
+#### Limits on the number of pages for all Controllers separately
+#### And more...
+    
 
 
   
