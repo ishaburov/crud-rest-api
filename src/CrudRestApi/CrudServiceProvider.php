@@ -4,23 +4,35 @@
 namespace CrudRestApi;
 
 
+use CrudRestApi\Console\MigrationCommand;
+use CrudRestApi\Console\TestCommand;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
+
 
 class CrudServiceProvider extends ServiceProvider
 {
+
     public function boot()
     {
-        include __DIR__.'/routes.php';
-
         $this->publishes([
-            __DIR__.'/config/crud.php' => config_path('crud.php'),
+            Path::configPath()."/crud.php" => config_path('crud.php'),
         ]);
-        $this->loadMigrationsFrom(__DIR__.'/migrations');
 
+        if (config('crud.load_routes', false) || App::environment('testing')) {
+            $this->loadRoutesFrom(__DIR__.'/routes.php');
+        }
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                MigrationCommand::class,
+                TestCommand::class
+            ]);
+        }
     }
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/config/crud.php', 'crud');
+        $this->mergeConfigFrom(Path::configPath()."/crud.php", 'crud');
     }
 }

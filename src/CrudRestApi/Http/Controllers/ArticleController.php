@@ -5,7 +5,7 @@ namespace CrudRestApi\Http\Controllers;
 use CrudRestApi\Http\Request\ArticleShowRequest;
 use CrudRestApi\Http\Request\ArticleStoreRequest;
 use CrudRestApi\Interfaces\CrudValidatorInterface;
-use CrudRestApi\Models\Article;
+use CrudRestApi\Models\CrudArticle;
 use CrudRestApi\Repositories\ArticleRepository;
 use CrudRestApi\Traits\CrudValidatorTrait;
 use Illuminate\Support\Facades\Hash;
@@ -31,7 +31,7 @@ class ArticleController extends CrudBaseController implements CrudValidatorInter
 
     public function setModelClass(): string
     {
-        return Article::class;
+        return CrudArticle::class;
     }
 
     public function updating(): void

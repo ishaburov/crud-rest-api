@@ -4,8 +4,8 @@
 namespace Tests;
 
 
-use CrudRestApi\Models\Article;
-use CrudRestApi\Models\Category;
+use CrudRestApi\Models\CrudArticle;
+use CrudRestApi\Models\CrudCategory;
 use Faker\Factory;
 
 class CategoryControllerTest extends TestCase
@@ -54,7 +54,7 @@ class CategoryControllerTest extends TestCase
 
     public function testUpdate()
     {
-        $categoryId = Category::query()
+        $categoryId = CrudCategory::query()
             ->inRandomOrder()
             ->first()
             ->id;
@@ -74,7 +74,7 @@ class CategoryControllerTest extends TestCase
 
     public function testDestroy()
     {
-        $categoryId = Category::query()
+        $categoryId = CrudCategory::query()
             ->inRandomOrder()
             ->first()
             ->id;

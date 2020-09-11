@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticlesTable extends Migration
+class CreateCrudArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,12 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('crud_articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->foreignId('category_id')->constrained('categories');
+            $table->foreignId('category_id')
+                ->constrained('crud_categories');
 
             $table->timestamps();
         });
@@ -24,10 +25,10 @@ class CreateArticlesTable extends Migration
         $faker = Faker\Factory::create();
 
         for ($i = 0; $i < 100; $i++) {
-            \CrudRestApi\Models\Article::create([
+            \CrudRestApi\Models\CrudArticle::create([
                 'title' => $faker->text(70),
                 'description' => $faker->realText(400),
-                'category_id' => \CrudRestApi\Models\Category::query()
+                'category_id' => \CrudRestApi\Models\CrudCategory::query()
                     ->inRandomOrder()
                     ->first()
                     ->id,
@@ -41,6 +42,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('crud_articles');
     }
 }

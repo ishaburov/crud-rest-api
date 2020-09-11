@@ -4,7 +4,7 @@ namespace CrudRestApi\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class CrudArticle extends Model
 {
     protected $fillable = [
         'title',
@@ -14,6 +14,6 @@ class Article extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(CrudCategory::class);
     }
 }

@@ -9,6 +9,20 @@ use Illuminate\Http\Request;
 
 trait CrudIndexTrait
 {
+    private function getPerPage(): string
+    {
+        $perPageKey = config('crud.per_page.key', 'per_page');
+        $perPageCount = $this->request->get($perPageKey, config('crud.per_page.value', 25));
+        $maxPerPage = config('crud.per_page.limit', 100);
+
+
+        if ($maxPerPage < $perPageCount) {
+            $perPageCount = $maxPerPage;
+        }
+
+        return $perPageCount;
+    }
+
 
     public function index(Request $request)
     {
@@ -18,7 +32,7 @@ trait CrudIndexTrait
         }
         $this->validate(CrudValidator::VALIDATE_INDEX);
 
-        $perPage = $request->get('per_page', 25);
+        $perPage = $this->getPerPage();
 
         $this->setQuery();
 

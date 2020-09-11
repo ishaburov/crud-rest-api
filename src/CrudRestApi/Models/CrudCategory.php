@@ -4,7 +4,7 @@ namespace CrudRestApi\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class CrudCategory extends Model
 {
     protected $fillable = ['title'];
 }

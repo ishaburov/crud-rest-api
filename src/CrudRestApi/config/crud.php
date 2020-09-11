@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'prefix' => 'api',
-    'namespace' => 'CrudRestApi\Http\Controllers',
-    'middleware' => [],
-    'routes' => [
-        'articles' => 'ArticleController',
-        'categories' => 'CategoryController',
+    'load_routes' => false,
+    'migration_dir' => database_path()."/migrations/crud",
+    'per_page' => [
+        'key' => 'per_page',
+        'value' => 10,
+        'limit' => 100,
     ],
 ];

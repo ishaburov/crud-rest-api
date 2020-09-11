@@ -4,7 +4,7 @@
 namespace Tests;
 
 
-use CrudRestApi\Models\Article;
+use CrudRestApi\Models\CrudArticle;
 use Faker\Factory;
 
 class ArticleControllerTest extends TestCase
@@ -27,7 +27,7 @@ class ArticleControllerTest extends TestCase
 
     public function testShow()
     {
-        $articleId = Article::query()->inRandomOrder()->first()->id;
+        $articleId = CrudArticle::query()->inRandomOrder()->first()->id;
 
         $response = $this->get("{$this->baseUrl}/{$articleId}");
 
@@ -45,7 +45,7 @@ class ArticleControllerTest extends TestCase
         $response = $this->post("{$this->baseUrl}", [
             'title' => $faker->text(70),
             'description' => $faker->realText(400),
-            'category_id' => \CrudRestApi\Models\Category::query()
+            'category_id' => \CrudRestApi\Models\CrudCategory::query()
                 ->inRandomOrder()
                 ->first()
                 ->id,
@@ -60,14 +60,14 @@ class ArticleControllerTest extends TestCase
 
     public function testUpdate()
     {
-        $articleId = Article::query()->inRandomOrder()->first()->id;
+        $articleId = CrudArticle::query()->inRandomOrder()->first()->id;
 
         $faker = Factory::create();
 
         $response = $this->put("{$this->baseUrl}/{$articleId}", [
             'title' => $faker->text(70),
             'description' => $faker->realText(400),
-            'category_id' => \CrudRestApi\Models\Category::query()
+            'category_id' => \CrudRestApi\Models\CrudCategory::query()
                 ->inRandomOrder()
                 ->first()
                 ->id,
@@ -82,7 +82,7 @@ class ArticleControllerTest extends TestCase
 
     public function testDestroy()
     {
-        $articleId = Article::query()->inRandomOrder()->first()->id;
+        $articleId = CrudArticle::query()->inRandomOrder()->first()->id;
         $response = $this->delete("{$this->baseUrl}/{$articleId}");
 
         $response->assertStatus(200)

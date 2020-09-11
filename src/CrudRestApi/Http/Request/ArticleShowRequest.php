@@ -6,7 +6,7 @@ namespace CrudRestApi\Http\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
-use CrudRestApi\Models\Article;
+use CrudRestApi\Models\CrudArticle;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -18,7 +18,7 @@ class ArticleShowRequest extends FormRequest
     {
         $articleId = $this->route('article');
 
-        if (!Article::where('id', $articleId)->exists()) {
+        if (!CrudArticle::where('id', $articleId)->exists()) {
             throw new NotFoundHttpException();
         }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateCrudCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('crud_categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->timestamps();
@@ -21,7 +21,7 @@ class CreateCategoriesTable extends Migration
         $faker = Faker\Factory::create();
 
         for ($i = 0; $i < 10; $i++) {
-            \CrudRestApi\Models\Category::create([
+            \CrudRestApi\Models\CrudCategory::create([
                 'title' => $faker->text(10),
             ]);
         }
@@ -33,6 +33,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('crud_categories');
     }
 }

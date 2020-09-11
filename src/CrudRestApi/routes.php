@@ -2,16 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-$prefix = config('crud.prefix', '');
-$namespace = config('crud.namespace', '');
-$middleware = config('crud.middleware', []);
 
-Route::prefix($prefix)
-    ->namespace($namespace)
-    ->middleware($middleware)
+Route::prefix('api')
+    ->namespace('CrudRestApi\Http\Controllers')
     ->group(function () {
-        $routes = config('crud.routes', []);
-
-        Route::apiResources($routes);
+        Route::apiResources([
+            'articles' => 'ArticleController',
+            'categories' => 'CategoryController',
+        ]);
     });
 
