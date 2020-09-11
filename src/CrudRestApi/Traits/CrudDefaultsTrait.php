@@ -60,12 +60,14 @@ trait CrudDefaultsTrait
         if (!property_exists($this, $property)) {
             return;
         }
+
         $request = $this->validator
             ->call($this->$property);
 
         if (!$request) {
             return;
         }
+
         $this->request = $request;
         $this->requestData = new Collection($this->request->validated());
     }

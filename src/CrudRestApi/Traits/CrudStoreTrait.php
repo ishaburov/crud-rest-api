@@ -12,6 +12,7 @@ trait CrudStoreTrait
 
     public function store(Request $request): array
     {
+
         $this->setRequest($request);
         $this->validate(CrudValidator::VALIDATE_STORE);
         $this->setQuery();

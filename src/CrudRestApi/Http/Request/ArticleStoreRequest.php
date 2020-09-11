@@ -13,7 +13,7 @@ class ArticleStoreRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'category_id' => 'exists:categories,id',
+            'category_id' => 'exists:crud_categories,id',
         ];
     }
 }

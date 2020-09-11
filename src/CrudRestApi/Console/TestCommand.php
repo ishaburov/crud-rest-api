@@ -38,6 +38,23 @@ class TestCommand extends Command
     {
         $composerPath = Path::composerPath();
 
+        $progressStart = false;
+        if (!is_dir($composerPath."/vendor")) {
+            $this->info('composer installing');
+            $this->getOutput()->progressStart();
+            $progressStart = true;
+            $process = Process::fromShellCommandline("cd {$composerPath} && composer install");
+
+            $process->start(function () use ($progressStart) {
+                if ($progressStart) {
+                    $this->getOutput()->progressAdvance();
+                }
+            });
+
+            $process->wait();
+        }
+
+
         $process = Process::fromShellCommandline("{$composerPath}/vendor/bin/phpunit  -c {$composerPath}/phpunit.xml --testdox");
         $process->run();
 
