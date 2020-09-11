@@ -1,5 +1,6 @@
 # CRUD rest-api based on Laravel
 
+[![Build Status](https://travis-ci.com/ishaburov/crud-rest-api.svg?branch=master)](https://travis-ci.com/ishaburov/crud-rest-api)
 [![Latest Stable Version](https://poser.pugx.org/shaburov/laravel-crud-rest-api/v)](//packagist.org/packages/shaburov/laravel-crud-rest-api)
 [![Total Downloads](https://poser.pugx.org/shaburov/laravel-crud-rest-api/downloads)](//packagist.org/packages/shaburov/laravel-crud-rest-api)
 [![Latest Unstable Version](https://poser.pugx.org/shaburov/laravel-crud-rest-api/v/unstable)](//packagist.org/packages/shaburov/laravel-crud-rest-api)
