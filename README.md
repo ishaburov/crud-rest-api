@@ -100,6 +100,8 @@ You should use CrudValidatorInterface and use Trait CrudValidatorTrait
     public function deleting()
     public function deleted()
    
+   <a href="https://github.com/ishaburov/crud-rest-api/blob/master/src/CrudRestApi/Http/Controllers/ArticleController.php" target="_blank">Controller example</a>
+
 ## Routes
 
 You should add routes in your routes file
