@@ -10,7 +10,7 @@ use CrudRestApi\Models\Category;
 use CrudRestApi\Repositories\ArticleRepository;
 use CrudRestApi\Traits\CrudValidatorTrait;
 
-class CategoryController extends AdminController
+class CategoryController extends CrudBaseController
 {
     public function setModelClass(): string
     {

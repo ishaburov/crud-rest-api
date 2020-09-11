@@ -20,7 +20,7 @@ use CrudRestApi\Traits\CrudShowTrait;
 use CrudRestApi\Traits\CrudStoreTrait;
 use CrudRestApi\Traits\CrudUpdateTrait;
 
-abstract class AdminController extends CrudController implements
+abstract class CrudBaseController extends CrudController implements
     CrudSaveInterface, CrudIndexInterface,
     CrudStoreInterface, CrudListInterface,
     CrudUpdateInterface, CrudDestroyInterface,

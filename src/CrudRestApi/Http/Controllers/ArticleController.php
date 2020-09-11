@@ -11,7 +11,7 @@ use CrudRestApi\Traits\CrudValidatorTrait;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class ArticleController extends AdminController implements CrudValidatorInterface
+class ArticleController extends CrudBaseController implements CrudValidatorInterface
 {
     use CrudValidatorTrait;
 
