@@ -6,10 +6,12 @@
 [![Latest Unstable Version](https://poser.pugx.org/shaburov/laravel-crud-rest-api/v/unstable)](//packagist.org/packages/shaburov/laravel-crud-rest-api)
 [![License](https://poser.pugx.org/shaburov/laravel-crud-rest-api/license)](//packagist.org/packages/shaburov/laravel-crud-rest-api)
 
-## Intro
+## Intro and install
 
  This package created for create fast crud operations, 
-    for example Pagination,Object list without pagination, Store, Update, Destroy and Show
+ for example Pagination,Object list without pagination, Store, Update, Destroy and Show
+
+    composer require shaburov/laravel-crud-rest-api
    
 ## Console
 
@@ -112,7 +114,7 @@ You should add routes in your routes file
 
 ## Parameters
 
-index [GET] include parameters 
+    index [GET] include parameters 
     page - current page // articles?page=1
     per_page - number of objects in the list // articles?per_page=1
     list - for get all object // articles?list    
